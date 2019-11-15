@@ -19,60 +19,68 @@ function t1() {
     a1.add(13);
     a1.add(16);
     a1.add('hello');
+    a1.add('21');
+    a1.add('world');
     console.log(a1);
 }
-
 document.querySelector('.b-1').onclick = t1;
 
 // Task 2 ============================================
 /*  Создайте input куда пользователь может вводить элементы и кнопку. По нажатию на кнопку значение из input добавляется в set. Set выводится в консоль.Результат присвойте переменной a2_res. Действия запускаются при вызове функции t2. */
 
+let a2 = new Set();
 function t2(elem) {
+    a2.add(elem);
+    a2_res = a2;
+    console.log(a2);
+    document.querySelector('.i-2').value = '';
 }
-
 document.querySelector('.b-2').onclick = function () {
     t2(document.querySelector('.i-2').value);
 }
-
 
 // Task 3 ============================================
 /* Добавьте к предыдущему заданию кнопку удалить. При нажатии кнопки читаете содержимое input и удаляете его из Set. Если input пустой - выводите ошибку(alert). */
 
 function t3(elem) {
-
+    if (elem != '') {
+        a2.delete(elem);
+        console.log(a2);
+        document.querySelector('.i-3').value = '';
+    }
+    else {
+        alert('Ошибка');
+    }
 }
-
 document.querySelector('.b-3').onclick = function () {
     t3(document.querySelector('.i-3').value);
 }
-
 
 // Task 4 ============================================
 /*  Добавьте к предыдущему заданию кнопку проверить. При нажатии кнопки читаете содержимое input и проверяет его наличие в Set. Функция должна возвращать true или false.Действия запускаются при вызове функции t4. 
 */
 
 function t4(elem) {
-
+    document.querySelector('.i-4').value = '';
+    return a2.has(elem);
 }
-
 document.querySelector('.b-4').onclick = function () {
     let res = t4(document.querySelector('.i-4').value);
     console.log(res);
 }
-
-
 
 // Task 5 ============================================
 /*  Выведите размер полученного в результате предыдущих операций Set. Выводить на страницу и возвращать в функции.
  Действия должны запускаться при вызове функции t5. */
 
 function t5() {
-    let size;
+    let size = a2.size;
     return size;
 }
-
-document.querySelector('.b-5').onclick = t5;
-
+document.querySelector('.b-5').onclick = function () {
+    document.querySelector('.out-5').innerHTML = t5();
+    console.log(t5());
+} 
 
 // Task 6 ============================================
 /* Есть массив  a6 = [3,4,3,2,4,56,1,23]. Напишите функцию, которая возвращает и выводит на страницу количество уникальных элементов в массиве a6. Решение должно использовать set.
