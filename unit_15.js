@@ -133,15 +133,12 @@ a8.add(6);
 a8.add(7);
 a8.add(8);
 function t8(a8) {
-    let k8 = 0;
     for (let item of a8) {
-        if (k8 % 2 == 0) {
+        if (item % 2 == 0) {
             a8_res.push(item);
         }
-        k8++;
     }
     document.querySelector('.out-8').innerHTML = a8_res;
-    // a8_res.splice(0, a8_res.length);
 }
 document.querySelector('.b-8').onclick = function () {
     t8(a8);
@@ -194,39 +191,39 @@ document.querySelector('.b-10').onclick = function () {
     t10(a10);
 }
 
-
 // Task 11 ============================================
 /*  Эмулируем работу set. Пользователь может ввести значение в i-11. Напишите функцию, которая по нажатию b-11 запускает функцию t11. Функция получает введенное значение и добавляет его в массив a11_res. Добавление происходит если такого значения в массиве нет. После каждой операции выводите a11_res на страницу.
  */
 
-// function t11(a11) {
-// let k11 = 0;
-//     do {
-//         if (a11 != a11_res[k11] /*&& a11 != ''*/) {
-//             a11_res.push(a11);
-//             console.log(a11_res);
-//             document.querySelector('.i-11').value = '';
-//         } white (k11)
-//         // console.log(i);
-//     }
-
-// }
-
-// document.querySelector('.b-11').onclick = function () {
-//     t11(document.querySelector('.i-11').value);
-// }
-
+function t11(a11) {
+    if (a11_res.indexOf(a11) == -1) {
+        a11_res.push(a11);
+        console.log(a11_res);
+        document.querySelector('.out-11').innerHTML = a11_res;
+        document.querySelector('.i-11').value = '';
+    }
+    else {
+        document.querySelector('.i-11').value = '';
+    }
+}
+document.querySelector('.b-11').onclick = function () {
+    t11(document.querySelector('.i-11').value);
+}
 
 // Task 12 ============================================!
 /*  Напишите функцию, которая принимает в качестве параметра набор set и преобразует его в массив, результат выводит на страницу и присваивает a12_res. Действия должны запускаться при вызове функции t12.
  */
 
-// let a12 = new
-
+let a12 = new Set ();
+a12.add('dog');
+a12.add('cat');
+a12.add('hamster');
+a12.add('bird');
+a12.add('fish');
 function t12(a12) {
-
+    a12_res = Array.from(a12);
+    document.querySelector('.out-12').innerHTML = a12_res;
 }
-
 document.querySelector('.b-12').onclick = () => t12(a12);
 
 // Task 13 ============================================!
@@ -235,18 +232,22 @@ document.querySelector('.b-12').onclick = () => t12(a12);
     Действия должны запускаться при вызове функции t13.
  */
 
-// let set13 = 
-// let elem13 = 
-
+let set13 = new Set (); 
+set13.add('angel');
+set13.add('clown');
+set13.add('drum');
+set13.add('mandarin');
+set13.add('sturgeon');
+let elem13 = document.querySelector('.out-13');
 function t13(set13, elem13) {
-
-
+    elem13.innerHTML = '';
+    for (let item of set13) {
+        elem13.innerHTML += item + '&nbsp';
+    }
 }
-
 document.querySelector('.b-13').onclick = () => {
     t13(set13, elem13);
 }
-
 
 // Task 14 ============================================
 /*  
@@ -255,9 +256,15 @@ document.querySelector('.b-13').onclick = () => {
         Т.е. ввели в качестве разделителя дефис и вывод на страницу 1-2-3- (без пробелов).
  */
 
-// let set14 = 
-// let elem14 = 
-// let sep14 = '-'
+let set14 = new Set ();
+let elem14 = document.querySelector('.out-13');
+set14.add('');
+set14.add('');
+set14.add('');
+set14.add('');
+set14.add('');
+set14.add('');
+let sep14 = '-';
 
 function t14(a14) {
 
